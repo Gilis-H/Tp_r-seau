@@ -1,0 +1,81 @@
+! CONFIG ROUTE PAR DEFAUT EDGE -> ISP1
+en
+conf t
+    ip route 0.0.0.0 0.0.0.0 10.10.10.1
+exit
+
+
+! CONFIG ROUTE PAR DEFAUT FLOTTANTE EDGE -> ISP2
+en
+conf t
+    ip route 0.0.0.0 0.0.0.0 10.10.10.5 5
+exit
+
+
+! CONFIG ROUTE PAR DEFAUT IPV6 EDGE -> ISP1
+en
+conf t
+    ipv6 route ::/0 2001:db8:a:1::1
+exit
+
+
+! CONFIG ROUTE PAR DEFAUT FLOTTANTE IPV6 EDGE -> ISP2
+en
+conf t
+    ipv6 route ::/0 2001:db8:a:2::1 5
+exit
+
+
+! CONFIG ROUTE STATIQUE ISP1 -> EDGE
+en
+conf t
+    ip route 192.168.10.16 255.255.255.240 10.10.10.2
+exit
+
+
+! CONFIG ROUTE FLOTTANTE ISP1 -> ISP2 -> LAN 1
+en
+conf t
+    ISP1(config)#ip route 192.168.10.16 255.255.255.240 10.10.10.5 5
+exit
+
+
+! CONFIG ROUTE FLOTTANTE ISP1 -> ISP2 -> LAN 2
+en
+conf t
+    ip route 192.168.11.32 255.255.255.224 10.10.10.5 5
+exit
+
+
+! CONFIG ROUTE FLOTTANTE IPV6 ISP1 -> EDGE ROUTEUR -> LAN 1
+en
+conf t
+    ipv6 route 2001:DB8:1:10::/64 2001:db8:a:1::2 5
+exit
+
+! CONFIG ROUTE FLOTTANTE IPV6 ISP1 -> EDGE ROUTEUR -> LAN 2
+en
+conf t
+    ipv6 route 2001:DB8:1:11::/64 2001:db8:a:1::2 5
+exit
+
+
+! CONFIG ROUTE HOTE EDGE ROUTEUR -> ISP1 ->CUSTOMER SERVEUR
+en
+conf t
+    ip route 198.0.0.10 255.255.255.255 10.10.10.1 
+exit
+
+
+! CONFIG ROUTE HOTE EDGE ROUTEUR -> ISP2 -> CUSTOMER SERVEUR
+en
+conf t
+    ip route 198.0.0.10 255.255.255.255 10.10.10.5 5
+exit
+
+
+! CONFIG ROUTE HOTE IPV6 EDGE ROUTEUR -> ISP1 ->CUSTOMER SERVEUR
+en
+conf t
+    ipv6 route 2001:db8:ff::10/128 2001:db8:a:1::1
+exit
