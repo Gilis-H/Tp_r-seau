@@ -1,0 +1,36 @@
+!script pour créer des vlan
+en
+config t
+!SCRIPT VLAN MODULAIRE
+vlan 10
+    name Faculty/Staff
+vlan 20
+    name Students
+vlan 30
+    name Guest(Default)
+vlan 99
+    name Management&Native
+vlan 150
+    name VOICE
+end
+
+copy run start
+
+!CONFIG DES PORTS COMME PORTS D'ACCESS
+enable
+configure terminal
+
+interface fastEthernet 0/11
+    switchport mode access
+    switchport access vlan 10
+exit
+
+interface fastEthernet 0/18
+    switchport mode access
+    switchport access vlan 20
+exit
+
+interface fastEthernet 0/6
+    switchport mode access
+    switchport access vlan 30
+end
