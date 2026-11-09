@@ -1,5 +1,10 @@
 # Tp_r-seau
 
+## Sources NetAcad
+
+- [Ressource NetAcad 1](https://www.netacad.com/launch?id=f9923869-72b3-4965-ac08-44401a77e95d&tab=curriculum&view=13ca36f2-a92d-5c78-a344-5c54183065b5)
+- [Ressource NetAcad 2](https://www.netacad.com/launch?id=00fa00e4-c828-4756-b6e2-7a27ae3c7d48&tab=curriculum&view=13ca36f2-a92d-5c78-a344-5c54183065b5)
+
 ## Parcours conseillé selon les chapitres des PDF
 
 Suivez les notions dans l’ordre des supports du dossier `Cour`, et non selon la numérotation des chapitres Cisco des fichiers `.pka`. Les codes SRWE/ENSA ci-dessous servent à retrouver les activités dans l’index cliquable qui suit.
