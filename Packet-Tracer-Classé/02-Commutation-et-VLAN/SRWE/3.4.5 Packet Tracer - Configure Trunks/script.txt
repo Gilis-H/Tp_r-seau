@@ -1,0 +1,15 @@
+
+! VLAN et ports d’accès
+show vlan brief
+
+! Mode et VLAN natif de chaque port
+show interfaces gigabitEthernet 0/1 switchport
+show interfaces gigabitEthernet 0/2 switchport
+
+! Sélectionner les deux ports sur S1
+configure terminal
+interface range g0/1 - 2
+! Activer le trunk sur les deux ports
+switchport mode trunk
+! Définir le VLAN natif
+switchport trunk native vlan 99
