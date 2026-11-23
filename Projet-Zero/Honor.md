@@ -12,6 +12,8 @@
 
 Les VLAN 10 et 20 ont été créés sur S1. Les trois ports des PC ont été placés en mode accès. `show vlan brief` confirme leurs affectations et `show ip interface brief` les affiche en `up/up`.
 
+Après discussion avec l’enseignant, le réglage du VLAN natif 99 a été retiré des ports des PC (`Fa0/1`, `Fa0/2` et `Fa0/3`). Ces ports fonctionnent en mode accès et classent les trames des PC dans leur VLAN d’accès. Le retrait évite qu’un passage accidentel en mode trunk associe les trames non étiquetées d’un PC au VLAN 99.
+
 ## Test validé
 
 Le ping **PC-1 → PC-3** réussit après correction de l’adresse IP de PC-3. Pendant le diagnostic, la table MAC de S1 a montré une adresse apprise sur chacun des deux ports dans le VLAN 10.
