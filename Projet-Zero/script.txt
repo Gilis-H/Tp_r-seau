@@ -1,5 +1,40 @@
 ! UNIVERSEL
+en
+config t
+hostname S1
 
 ! STANDART
 
+
 ! SPECIFIQUE
+
+en
+config t
+!SCRIPT VLAN MODULAIRE
+vlan 10
+    name ORION
+    interface fa0/1 
+    switchport mode access
+    switchport access vlan 10
+    interface fa0/3
+    switchport mode access
+    switchport access vlan 10
+vlan 20
+    name HELIX
+    interface fa0/2
+    switchport mode access
+    switchport access vlan 20
+
+
+interface fa0/2
+    switchport mode trunk
+    switchport trunk native vlan 99
+interface fa0/3
+    switchport mode trunk
+    switchport trunk native vlan 99
+
+
+! Activer le trunk sur les deux ports
+switchport mode trunk
+! Définir le VLAN natif
+switchport trunk native vlan 99
